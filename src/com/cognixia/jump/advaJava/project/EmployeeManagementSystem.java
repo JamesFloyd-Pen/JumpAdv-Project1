@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class EmployeeManagementSystem {
 	File file = new File("resources/employees.txt");
@@ -19,22 +20,43 @@ public class EmployeeManagementSystem {
 	BufferedReader reader = null;
 
 	
-	protected void newEmployee(String name){
+	protected void newEmployee(String newID, String newName, String newDepartment){
+		File newFile = new File("resources/employees.txt");
+		String ID = "";
+		String fullName ="";
+		String department ="";
+		Scanner scan;
+
 		
 		try {
-			fileWriter = new FileWriter(file);
+			fileWriter = new FileWriter(newFile, true);
 			buffWriter = new BufferedWriter(fileWriter);
 			printWriter = new PrintWriter(buffWriter);
-		
-			//printWriter.println("ID 1," +name+",Fishing");
-			//System.out.println("Success, new employee created!");
-			
+			scan = new Scanner(new File("resources/employees.txt"));
+			scan.useDelimiter("[,\n]");
+
+			while(scan.hasNext()){
+				ID = scan.next();
+				fullName = scan.next();
+				department = scan.next();
+				if(ID.equals(newID)) {
+					printWriter.println(newID + "," + newName + "," + newDepartment);
+				}
+				else {
+					printWriter.println(ID + "," + fullName + "," + department);
+				}
+			}
+			scan.close();
+
+
+
+			System.out.println("Success, new employee created!");
+
 		} catch (IOException e) {
 			// TODO: handle exception
 			System.out.println("IOEXCEPTION!");
 			e.printStackTrace();
 		} finally {
-
 			if(buffWriter != null) {
 				try {
 					buffWriter.close();
