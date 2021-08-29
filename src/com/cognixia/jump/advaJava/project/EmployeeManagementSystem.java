@@ -21,39 +21,17 @@ public class EmployeeManagementSystem {
 
 	
 	protected void newEmployee(String newID, String newName, String newDepartment){
-		File newFile = new File("resources/employees.txt");
-		String ID = "";
-		String fullName ="";
-		String department ="";
-		Scanner scan;
-
+		String tempFile = "resources/employees1.txt";
 		
 		try {
-			fileWriter = new FileWriter(newFile, true);
-			buffWriter = new BufferedWriter(fileWriter);
-			printWriter = new PrintWriter(buffWriter);
-			scan = new Scanner(new File("resources/employees.txt"));
-			scan.useDelimiter("[,\n]");
+			FileWriter fileWriter = new FileWriter(file,true);
 
-			while(scan.hasNext()){
-				ID = scan.next();
-				fullName = scan.next();
-				department = scan.next();
-				if(ID.equals(newID)) {
-					printWriter.println(newID + "," + newName + "," + newDepartment);
-				}
-				else {
-					printWriter.println(ID + "," + fullName + "," + department);
-				}
-			}
-			scan.close();
-
-
-
+			fileWriter.write(newID + "," + newName + "," + newDepartment);
 			System.out.println("Success, new employee created!");
+			fileWriter.close();
+
 
 		} catch (IOException e) {
-			// TODO: handle exception
 			System.out.println("IOEXCEPTION!");
 			e.printStackTrace();
 		} finally {

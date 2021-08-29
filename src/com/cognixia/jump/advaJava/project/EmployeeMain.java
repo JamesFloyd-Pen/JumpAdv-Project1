@@ -5,7 +5,7 @@ public class EmployeeMain{
 
 	public static void main(String[] arg) {
 		EmployeeManagementSystem sothis = new EmployeeManagementSystem();
-		sothis.newEmployee("1","Sothis","fishing");
+		sothis.newEmployee("1","Sothis","Programmer");
 		//sothis.listEmployeeInfo();
 
 	}
