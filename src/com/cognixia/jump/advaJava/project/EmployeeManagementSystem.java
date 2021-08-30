@@ -80,7 +80,7 @@ public class EmployeeManagementSystem {
 				fileReader.close();
 				reader.close();
 			} catch(IOException e) {
-				System.out.println("CANT DO IT SIR!");
+				System.out.println("IOEXCEPTION ERROR!!");
 			}
 		}
 	}

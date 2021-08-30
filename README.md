@@ -4,7 +4,7 @@ Employee Management System to add new Employees, update Employee Information, an
 
 
 
-#Table
+# Table
 
 |ID | Full Name | Department |
 | :---: | :-: | :-: |

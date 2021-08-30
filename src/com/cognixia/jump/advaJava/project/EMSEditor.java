@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Optional;
 
 public class EMSEditor extends EmployeeManagementSystem{
     
@@ -63,7 +62,7 @@ public class EMSEditor extends EmployeeManagementSystem{
     }
 
     protected void removeEmployee(String ID){
-
+        
         listEmployeeInfo();
         Iterator itr = index.iterator();
         while(itr.hasNext()){
@@ -76,12 +75,10 @@ public class EMSEditor extends EmployeeManagementSystem{
         arrayListToFile();
 	}
 
-
-
     public void checkID(int input) throws FindIDException{
 
 		if(input < 0){
-			new FindIDException();
+			throw new FindIDException(input);
         }
 	}
 

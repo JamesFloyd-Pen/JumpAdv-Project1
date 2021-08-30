@@ -3,6 +3,10 @@ package com.cognixia.jump.advaJava.project;
 import java.util.Scanner;
 
 public class EmployeeMain{
+	/*
+		Global variables to call classes in main class.
+	*/
+
 	static EmployeeManagementSystem ems1 = new EmployeeManagementSystem();
 	static EMSEditor ems2 = new EMSEditor();
 
@@ -62,7 +66,7 @@ public class EmployeeMain{
 	}
 
 	private static void updateEmployeeHelper() {
-		//Not the most efficent code!
+		//Not the most efficent code. 
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Insert new ID");
@@ -97,16 +101,4 @@ public class EmployeeMain{
 		System.out.println("4. Delete Employee");
 		System.out.println("5. Exit");
 	}
-
-	/*
-			
-		EMSEditor update =  new EMSEditor();
-		update.removeEmployee("2");
-	*/
-	//EmployeeManagementSystem sothis = new EmployeeManagementSystem();
-	//sothis.newEmployee("1","Sothis","Programmer");
-	//sothis.listEmployeeInfo();
-	//update.updateEmployee("2","Sothis","Cat", "Agriculture");
-
-
 }
