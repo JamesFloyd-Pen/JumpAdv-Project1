@@ -8,25 +8,23 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 public class EmployeeManagementSystem {
-	File file = new File("resources/employees.txt");
-	FileWriter fileWriter = null;
-	BufferedWriter buffWriter = null;
-	PrintWriter printWriter = null;
+	protected File file = new File("resources/employees.txt");
+	protected FileWriter fileWriter = null;
+	protected BufferedWriter buffWriter = null;
+	protected PrintWriter printWriter = null;
 	protected String inputName;
-	FileReader fileReader = null;
-	BufferedReader reader = null;
+	protected FileReader fileReader = null;
+	protected BufferedReader reader = null;
 
 	
 	protected void newEmployee(String newID, String newName, String newDepartment){
-		String tempFile = "resources/employees1.txt";
 		
 		try {
 			FileWriter fileWriter = new FileWriter(file,true);
 
-			fileWriter.write(newID + "," + newName + "," + newDepartment);
+			fileWriter.write(newID + "," + newName + "," + newDepartment + System.getProperty( "line.separator" ));
 			System.out.println("Success, new employee created!");
 			fileWriter.close();
 
@@ -57,16 +55,10 @@ public class EmployeeManagementSystem {
 		}
 	}
 	
-	protected void removeEmployee(){
-		
-	}
-	
-	protected void updateEmployee() {
-		
-	}
 	
 	protected void listEmployeeInfo() {
 		//print the file in employee
+
 		try {
 			fileReader = new FileReader(file);
 			reader = new BufferedReader(fileReader);
@@ -76,8 +68,7 @@ public class EmployeeManagementSystem {
 
 			String line;
 			while ((line = reader.readLine()) != null) {
-					System.out.println(line);
-					
+					System.out.println(line);					
 			}
 
 		} catch (FileNotFoundException e) {
@@ -93,4 +84,5 @@ public class EmployeeManagementSystem {
 			}
 		}
 	}
+
 }

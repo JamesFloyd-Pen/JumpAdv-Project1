@@ -1,4 +1,6 @@
-2,Sothis,Cat
+1,Sothis,Programmer
+2,Sothis,Agriculture
 3,Hi,Fishing
 
-1,Sothis,Programmer
+9,James Floyd,Vet
+19,Varis,Shipping

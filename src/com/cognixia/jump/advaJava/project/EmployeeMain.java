@@ -1,13 +1,84 @@
 package com.cognixia.jump.advaJava.project;
 
+import java.util.Scanner;
 
 public class EmployeeMain{
+	static EmployeeManagementSystem ems1 = new EmployeeManagementSystem();
+
 
 	public static void main(String[] arg) {
-		EmployeeManagementSystem sothis = new EmployeeManagementSystem();
-		sothis.newEmployee("1","Sothis","Programmer");
-		//sothis.listEmployeeInfo();
+		boolean onLoop = true;
+		Scanner input = new Scanner(System.in);
+
+
+		//System Print Out Interface
+		System.out.println("Welcome to JFloyd Emplyee Management System! \n" +
+		"Please insert a number to continue");
+		
+		while(onLoop){
+			mainMenu();
+			int indexPointer = input.nextInt();
+
+			switch(indexPointer){
+				case 1:
+					ems1.listEmployeeInfo();
+					break;
+				case 2:
+					insertNewEmployeeHelper();
+					break;
+				case 3:
+					System.out.println("Update the update employee");
+					break;
+				case 4:
+					System.out.println("Update delete later");
+					break;
+				case 5:
+					onLoop = false;
+					break;
+				default:
+					System.out.println("ERROR! Please Enter a valid integer");
+					break;
+	
+			}
+		}
+		input.close();
+	}
+
+	private static void insertNewEmployeeHelper() {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Insert new ID");
+		String newID = input.nextLine();
+		
+		System.out.println("Insert name");
+		String newName = input.nextLine();
+
+		System.out.println("Insert Department");
+		String newDepartment = input.nextLine();
+
+		ems1.newEmployee(newID, newName, newDepartment);
+	}
+
+	public static void mainMenu(){
+		System.out.println("===Main Menu===");
+		System.out.println("1. Print List of Employees");
+		System.out.println("2. Add a new Employee");
+		System.out.println("3. Update Employee");
+		System.out.println("4. Delete Employee");
+		System.out.println("5. Exit");
+
 
 	}
+
+	/*
+			
+		EMSEditor update =  new EMSEditor();
+		update.removeEmployee("2");
+	*/
+	//EmployeeManagementSystem sothis = new EmployeeManagementSystem();
+	//sothis.newEmployee("1","Sothis","Programmer");
+	//sothis.listEmployeeInfo();
+	//update.updateEmployee("2","Sothis","Cat", "Agriculture");
+
 
 }
