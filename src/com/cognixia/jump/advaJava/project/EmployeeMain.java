@@ -15,7 +15,6 @@ public class EmployeeMain{
 		boolean onLoop = true;
 		Scanner input = new Scanner(System.in);
 
-
 		//System Print Out Interface
 		System.out.println("Welcome to JFloyd Emplyee Management System! \n" +
 		"Please insert a number to continue");
@@ -38,6 +37,9 @@ public class EmployeeMain{
 					deleteEmployeeHelper();
 					break;
 				case 5:
+					findDepartmentHelper();
+					break;
+				case 6:
 					System.out.println("Goodbye!");
 					onLoop = false;
 					break;
@@ -93,12 +95,24 @@ public class EmployeeMain{
 		ems2.removeEmployee(newID);
 	}
 
+	public static void findDepartmentHelper(){
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("Insert name of Department to find");
+		String Department = input.nextLine();
+
+		ems2.printDepartment(Department);
+
+	}
+
 	public static void mainMenu(){
 		System.out.println("===Main Menu===");
 		System.out.println("1. Print List of Employees");
 		System.out.println("2. Add a new Employee");
 		System.out.println("3. Update Employee");
 		System.out.println("4. Delete Employee");
-		System.out.println("5. Exit");
+		System.out.println("5. Find Department");
+		System.out.println("6. Exit");
+
 	}
 }

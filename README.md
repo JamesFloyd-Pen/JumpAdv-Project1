@@ -23,7 +23,8 @@ Please insert a number to continue
 2. Add a new Employee
 3. Update Employee
 4. Delete Employee
-5. Exit
+5. Find Department
+6. Exit
 1
 CONTEXT OF FILE!
 ======================
@@ -37,8 +38,9 @@ CONTEXT OF FILE!
 2. Add a new Employee
 3. Update Employee
 4. Delete Employee
-5. Exit
-5
+5. Find Department
+6. Exit
+6
 Goodbye!
 
 ```

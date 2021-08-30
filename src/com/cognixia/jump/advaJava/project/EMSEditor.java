@@ -62,7 +62,7 @@ public class EMSEditor extends EmployeeManagementSystem{
     }
 
     protected void removeEmployee(String ID){
-        
+
         listEmployeeInfo();
         Iterator itr = index.iterator();
         while(itr.hasNext()){
@@ -95,6 +95,14 @@ public class EMSEditor extends EmployeeManagementSystem{
             //TODO: handle exception
             e.printStackTrace();
         }
+    }
+
+    public void printDepartment(String Department){
+        listEmployeeInfo();
+        for(String newLine: index) {
+            if(newLine.contains(Department))
+                System.out.println(newLine + "\n");
+          }
     }
 	
 }
