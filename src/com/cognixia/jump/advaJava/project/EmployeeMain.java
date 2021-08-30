@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class EmployeeMain{
 	static EmployeeManagementSystem ems1 = new EmployeeManagementSystem();
+	static EMSEditor ems2 = new EMSEditor();
 
 
 	public static void main(String[] arg) {
@@ -27,12 +28,13 @@ public class EmployeeMain{
 					insertNewEmployeeHelper();
 					break;
 				case 3:
-					System.out.println("Update the update employee");
+					updateEmployeeHelper();					
 					break;
 				case 4:
-					System.out.println("Update delete later");
+					deleteEmployeeHelper();
 					break;
 				case 5:
+					System.out.println("Goodbye!");
 					onLoop = false;
 					break;
 				default:
@@ -59,6 +61,34 @@ public class EmployeeMain{
 		ems1.newEmployee(newID, newName, newDepartment);
 	}
 
+	private static void updateEmployeeHelper() {
+		//Not the most efficent code!
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Insert new ID");
+		String newID = input.nextLine();
+		
+		System.out.println("Insert Current name");
+		String newName = input.nextLine();
+
+		System.out.println("Insert Old Department");
+		String oldDepartment = input.nextLine();
+
+		System.out.println("Insert New Department");
+		String newDepartment = input.nextLine();
+
+		ems2.updateEmployee(newID, newName, oldDepartment, newDepartment);
+	}
+
+	private static void deleteEmployeeHelper() {
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("Insert ID to delete");
+		String newID = input.nextLine();
+
+		ems2.removeEmployee(newID);
+	}
+
 	public static void mainMenu(){
 		System.out.println("===Main Menu===");
 		System.out.println("1. Print List of Employees");
@@ -66,8 +96,6 @@ public class EmployeeMain{
 		System.out.println("3. Update Employee");
 		System.out.println("4. Delete Employee");
 		System.out.println("5. Exit");
-
-
 	}
 
 	/*

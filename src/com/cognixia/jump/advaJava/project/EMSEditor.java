@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Optional;
 
 public class EMSEditor extends EmployeeManagementSystem{
@@ -14,16 +15,14 @@ public class EMSEditor extends EmployeeManagementSystem{
 
     @Override
     protected void listEmployeeInfo() {
+        //To handle index ArrayList
        
 		try {
 			fileReader = new FileReader(file);
 			reader = new BufferedReader(fileReader);
 
-            System.out.println("CONTEXT OF FILE!");
-			System.out.println("======================");
 			String line;
 			while ((line = reader.readLine()) != null) {
-					System.out.println(line);
                     index.add(line);					
 			}
 
@@ -46,6 +45,7 @@ public class EMSEditor extends EmployeeManagementSystem{
             listEmployeeInfo();
             String temp= ID+","+Name+","+oldDepartment;
             int i = index.indexOf(temp);
+            System.out.println(i);
 
             if(i >=0){
                 temp = ID+","+Name+","+newDepartment;
@@ -63,22 +63,17 @@ public class EMSEditor extends EmployeeManagementSystem{
     }
 
     protected void removeEmployee(String ID){
-		try {
-            listEmployeeInfo();
 
-            Optional<String> searchResult = index.stream()
-            .filter(value -> value != null)
-            .filter(value -> value.contains(ID))
-            .findFirst();
-            if(searchResult.isPresent()){
-                System.out.println(searchResult);
-
-            }else{
-                System.out.println("No ID exists");
+        listEmployeeInfo();
+        Iterator itr = index.iterator();
+        while(itr.hasNext()){
+        String x = (String)itr.next();
+        if(x.contains(ID)) {
+            itr.remove();
             }
-		} catch (Exception e) {
-            System.out.println("Exception Error has occured!");
-		}
+        }
+        System.out.println(index);
+        arrayListToFile();
 	}
 
 
