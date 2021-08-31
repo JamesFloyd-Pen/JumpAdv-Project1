@@ -1,5 +1,6 @@
 1,Bob,Film
 2,Jim,HR
 3,Hilda,Producer 
-4,James,Medicial
+4,James,HR
 5,Gordon,Science
+6,James,HT

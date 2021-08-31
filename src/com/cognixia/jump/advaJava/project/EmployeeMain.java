@@ -71,7 +71,7 @@ public class EmployeeMain{
 		//Not the most efficent code. 
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("Insert new ID");
+		System.out.println("Insert Employee's ID");
 		String newID = input.nextLine();
 		
 		System.out.println("Insert Current name");
