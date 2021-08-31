@@ -14,7 +14,9 @@ Example Table
 | 2 | Jim | HR | 
 | 3 | Hilda | Producer |
 
-Example Input
+# Prototype
+
+Example Menu
 ```
 Welcome to JFloyd Emplyee Management System! 
 Please insert a number to continue
